@@ -8,4 +8,12 @@ class Ride {
         this.start = starts;
         this.end = ends;
     }
+
+    public int[] getStart() {
+        return start;
+    }
+
+    public int[] getEnd() {
+        return end;
+    }
 }
