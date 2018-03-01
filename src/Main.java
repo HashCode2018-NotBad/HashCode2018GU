@@ -31,6 +31,9 @@ public class Main {
         System.out.println("Bonus = " + b);
 
         Car[] cars = new Car[f];
+        for(int i = 0; i < f; i++){
+            cars[i].
+        }
 
         for (int i = 0; i < t; i++) {
 
