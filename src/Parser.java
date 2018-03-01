@@ -4,17 +4,20 @@ import java.util.Scanner;
 
 public class Parser {
 
-    private static City city;
-    private static Car[] cars;
-    private static int rows = 0;
-    private static int columns = 0;
-    private static int numberOfVehicles = 0;
-    private static int numberOfRides = 0;
-    private static int bonus = 0;
-    private static int numberOfSteps = 0;
+    private int rows;
+    private int columns;
+    private int numberOfVehicles;
+    private int numberOfRides;
+    private int bonus;
+    private int numberOfSteps;
 
     public Parser() {
-
+        this.rows = 0;
+        this.columns = 0;
+        this.numberOfVehicles = 0;
+        this.numberOfRides = 0;
+        this.bonus = 0;
+        this.numberOfSteps = 0;
     }
 
     public void parseLines() {
@@ -29,7 +32,7 @@ public class Parser {
                         while (s.charAt(counter) != (' ')) {
                             counter++;
                         }
-                        rows = Integer.parseInt(s.substring(0, counter + 1));
+                        this.rows = Integer.parseInt(s.substring(0, counter + 1));
                         counter = 0;
                         i++;
                     }
@@ -37,7 +40,7 @@ public class Parser {
                         while (s.charAt(counter) != (' ')) {
                             counter++;
                         }
-                        columns = Integer.parseInt(s.substring(0, counter + 1));
+                        this.columns = Integer.parseInt(s.substring(0, counter + 1));
                         counter = 0;
                         i++;
                     }
@@ -45,7 +48,7 @@ public class Parser {
                         while (s.charAt(counter) != (' ')) {
                             counter++;
                         }
-                        numberOfVehicles = Integer.parseInt(s.substring(0, counter + 1));
+                        this.numberOfVehicles = Integer.parseInt(s.substring(0, counter + 1));
                         counter = 0;
                         i++;
                     }
@@ -53,7 +56,7 @@ public class Parser {
                         while (s.charAt(counter) != (' ')) {
                             counter++;
                         }
-                        numberOfRides = Integer.parseInt(s.substring(0, counter + 1));
+                        this.numberOfRides = Integer.parseInt(s.substring(0, counter + 1));
                         counter = 0;
                         i++;
                     }
@@ -61,7 +64,7 @@ public class Parser {
                         while (s.charAt(counter) != (' ')) {
                             counter++;
                         }
-                        bonus = Integer.parseInt(s.substring(0, counter + 1));
+                        this.bonus = Integer.parseInt(s.substring(0, counter + 1));
                         counter = 0;
                         i++;
                     }
@@ -69,18 +72,40 @@ public class Parser {
                         while (s.charAt(counter) != (' ')) {
                             counter++;
                         }
-                        numberOfSteps = Integer.parseInt(s.substring(0, counter + 1));
+                        this.numberOfSteps = Integer.parseInt(s.substring(0, counter + 1));
                         counter = 0;
                         i++;
                     }
 
                 }
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
+    public int getRows() {
+        return this.rows;
+    }
+
+    public int getColumns() {
+        return this.columns;
+    }
+
+    public int getNumberOfVehicles() {
+        return numberOfVehicles;
+    }
+
+    public int getNumberOfRides() {
+        return numberOfRides;
+    }
+
+    public int getBonus() {
+        return bonus;
+    }
+
+    public int getNumberOfSteps() {
+        return numberOfSteps;
+    }
 }
