@@ -20,7 +20,7 @@ public class Parser {
         int counter = 0;
         try (Scanner scanner = new Scanner(new File(fileName))) {
             while (scanner.hasNext()){
-                for (int i = 0; i < 6) {
+                for (int i = 0; i < 6;) {
                     if (i == 0) {
                         while (s.charAt(counter) != (' ')) {
                             counter++;
