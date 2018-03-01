@@ -9,7 +9,7 @@ public class Main {
 
     private static Parser parser = new Parser();
 
-    public static void main(String[] args) {    
+    public static void main(String[] args) {
     parser.parseLines();
 
     t = parser.getNumberOfSteps();
@@ -22,12 +22,12 @@ public class Main {
     City city = new City(r,c);
 
     System.out.println("City rows = " + r);
-    System.out.println("City columns = " + c);
+        System.out.println("City columns = " + c);
 
-    System.out.println("Steps = " + t);
-    System.out.println("Vehicles = " + f);
-    System.out.println("Rides = " + n);
+        System.out.println("Steps = " + t);
+        System.out.println("Vehicles = " + f);
+        System.out.println("Rides = " + n);
 
-    System.out.println("Bonus = " + b);
+        System.out.println("Bonus = " + b);
     }
 }

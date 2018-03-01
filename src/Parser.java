@@ -10,6 +10,7 @@ public class Parser {
     private int numberOfRides;
     private int bonus;
     private int numberOfSteps;
+    private Ride[] rides;
 
     public Parser() {
         this.rows = 0;
@@ -26,17 +27,15 @@ public class Parser {
         try (Scanner scanner = new Scanner(new File(fileName))) {
             String firstLine = scanner.nextLine();
             System.out.println(firstLine);
-            for (int i = 0; i < 6;) {
+            for (int i = 0; i < 6; i++) {
                 if (i == 0) {
                     System.out.println(firstLine);
                     while (firstLine.charAt(counter) != ' ') {
                         counter++;
                     }
-                    //System.out.println(firstLine.substring(0, counter));
                     rows = Integer.parseInt(firstLine.substring(0, counter));
                     firstLine = firstLine.substring(counter + 1, firstLine.length());
                     counter = 0;
-                    i++;
                 }
                 else if (i == 1) {
                     System.out.println(firstLine);
@@ -47,7 +46,6 @@ public class Parser {
                     columns = Integer.parseInt(firstLine.substring(0, counter));
                     firstLine = firstLine.substring(counter + 1, firstLine.length());
                     counter = 0;
-                    i++;
                 }
                 else if (i == 2) {
                     System.out.println(firstLine);
@@ -58,7 +56,6 @@ public class Parser {
                     numberOfVehicles = Integer.parseInt(firstLine.substring(0, counter));
                     firstLine = firstLine.substring(counter + 1, firstLine.length());
                     counter = 0;
-                    i++;
                 }
                 else if (i == 3) {
                     System.out.println(firstLine);
@@ -69,7 +66,6 @@ public class Parser {
                     numberOfRides = Integer.parseInt(firstLine.substring(0, counter));
                     firstLine = firstLine.substring(counter + 1, firstLine.length());
                     counter = 0;
-                    i++;
                 }
                 else if (i == 4) {
                     System.out.println("counter = " + counter);
@@ -82,15 +78,73 @@ public class Parser {
                     bonus = Integer.parseInt(firstLine.substring(0, counter));
                     firstLine = firstLine.substring(counter + 1, firstLine.length());
                     counter = 0;
-                    i++;
                 }
                 else if (i == 5) {
                     System.out.println(firstLine);
                     System.out.println(firstLine.substring(0, firstLine.length()));
                     numberOfSteps = Integer.parseInt(firstLine.substring(0, firstLine.length()));
                     counter = 0;
-                    i++;
                 }
+            }
+
+            //Going through all rides now
+            rides = new Ride[numberOfRides];
+            int rideIndex = 0;
+            int rowStart;
+            int colStart;
+            int rowEnd;
+            int colEnd;
+            int earliestStart;
+            int latestFinish;
+            while (scanner.hasNext()) {
+                String rideLine = scanner.nextLine();
+                int counterRide = 0;
+                System.out.println(rideLine);
+
+                //Row start retrieve val
+                while (rideLine.charAt(counterRide) != ' ') {
+                    counterRide++;
+                }
+                rowStart = Integer.parseInt(rideLine.substring(0, counterRide));
+                rideLine = rideLine.substring(counterRide + 1, rideLine.length());
+                counterRide = 0;
+
+                //Column start retrieve val
+                while (rideLine.charAt(counterRide) != ' ') {
+                    counterRide++;
+                }
+                colStart = Integer.parseInt(rideLine.substring(0, counterRide));
+                rideLine = rideLine.substring(counterRide + 1, rideLine.length());
+                counterRide = 0;
+
+                //Row end retrieve val
+                while (rideLine.charAt(counterRide) != ' ') {
+                    counterRide++;
+                }
+                rowEnd = Integer.parseInt(rideLine.substring(0, counterRide));
+                rideLine = rideLine.substring(counterRide + 1, rideLine.length());
+                counterRide = 0;
+
+                //Column end retrieve val
+                while (rideLine.charAt(counterRide) != ' ') {
+                    counterRide++;
+                }
+                colEnd = Integer.parseInt(rideLine.substring(0, counterRide));
+                rideLine = rideLine.substring(counterRide + 1, rideLine.length());
+                counterRide = 0;
+
+                //Earliest start retrieve val
+                while (rideLine.charAt(counterRide) != ' ') {
+                    counterRide++;
+                }
+                earliestStart = Integer.parseInt(rideLine.substring(0, counterRide));
+                rideLine = rideLine.substring(counterRide + 1, rideLine.length());
+
+                latestFinish =  Integer.parseInt(rideLine.substring(0, rideLine.length()));
+
+                rides[rideIndex] = new Ride(new int[] {rowStart, colStart}, new int[] {rowEnd, colEnd}, earliestStart,
+                        latestFinish);
+                rideIndex++;
             }
         }
         catch (IOException e) {
