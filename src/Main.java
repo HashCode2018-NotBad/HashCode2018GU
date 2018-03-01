@@ -5,6 +5,7 @@ public class Main {
     static int n; // No of rides in total
     static int r; // No of rows
     static int c; // No of columns
+    static int b; // The bonus points
 
     private static Parser parser = new Parser();
 
@@ -16,6 +17,7 @@ public class Main {
     n = parser.getNumberOfRides();
     r = parser.getRows();
     c = parser.getColumns();
+    b = parser.getBonus();
 
     City city = new City(r,c);
 
@@ -25,5 +27,7 @@ public class Main {
     System.out.println("Steps = " + t);
     System.out.println("Vehicles = " + f);
     System.out.println("Rides = " + n);
+
+    System.out.println("Bonus = " + b);
     }
 }
