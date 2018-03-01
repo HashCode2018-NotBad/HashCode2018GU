@@ -19,56 +19,72 @@ public class Parser {
 
     public void parseLines() {
         String fileName = "./a_example.in";
-        String s = "";
         int counter = 0;
         try (Scanner scanner = new Scanner(new File(fileName))) {
             String firstLine = scanner.nextLine();
+            System.out.println(firstLine);
             for (int i = 0; i < 6;) {
                 if (i == 0) {
-                    while (firstLine.charAt(counter) != (' ')) {
+                    System.out.println(firstLine);
+                    while (firstLine.charAt(counter) != ' ') {
                         counter++;
                     }
+                    //System.out.println(firstLine.substring(0, counter));
                     rows = Integer.parseInt(firstLine.substring(0, counter));
+                    firstLine = firstLine.substring(counter + 1, firstLine.length());
                     counter = 0;
                     i++;
                 }
                 else if (i == 1) {
-                    while (firstLine.charAt(counter) != (' ')) {
+                    System.out.println(firstLine);
+                    while (firstLine.charAt(counter) != ' ') {
                         counter++;
                     }
+                    //System.out.println(firstLine.substring(0, counter));
                     columns = Integer.parseInt(firstLine.substring(0, counter));
+                    firstLine = firstLine.substring(counter + 1, firstLine.length());
                     counter = 0;
                     i++;
                 }
                 else if (i == 2) {
-                    while (firstLine.charAt(counter) != (' ')) {
+                    System.out.println(firstLine);
+                    while (firstLine.charAt(counter) != ' ') {
                         counter++;
                     }
+                    System.out.println(firstLine.substring(0, counter));
                     numberOfVehicles = Integer.parseInt(firstLine.substring(0, counter));
+                    firstLine = firstLine.substring(counter + 1, firstLine.length());
                     counter = 0;
                     i++;
                 }
                 else if (i == 3) {
-                    while (firstLine.charAt(counter) != (' ')) {
+                    System.out.println(firstLine);
+                    while (firstLine.charAt(counter) != ' ') {
                         counter++;
                     }
+                    System.out.println(firstLine.substring(0, counter));
                     numberOfRides = Integer.parseInt(firstLine.substring(0, counter));
+                    firstLine = firstLine.substring(counter + 1, firstLine.length());
                     counter = 0;
                     i++;
                 }
                 else if (i == 4) {
-                    while (firstLine.charAt(counter) != (' ')) {
+                    System.out.println("counter = " + counter);
+                    System.out.println(firstLine);
+                    while (firstLine.charAt(counter) != ' ') {
                         counter++;
+                        System.out.println("counter++");
                     }
+                    System.out.println(firstLine.substring(0, counter));
                     bonus = Integer.parseInt(firstLine.substring(0, counter));
+                    firstLine = firstLine.substring(counter + 1, firstLine.length());
                     counter = 0;
                     i++;
                 }
                 else if (i == 5) {
-                    while (firstLine.charAt(counter) != (' ')) {
-                        counter++;
-                    }
-                    numberOfSteps = Integer.parseInt(firstLine.substring(0, counter));
+                    System.out.println(firstLine);
+                    System.out.println(firstLine.substring(0, firstLine.length()));
+                    numberOfSteps = Integer.parseInt(firstLine.substring(0, firstLine.length()));
                     counter = 0;
                     i++;
                 }
